@@ -1,0 +1,12 @@
+<div class="m-5 d-flex justify-content-between align-items-center">
+  <h1>Restaurants' list</h1>
+  <%= link_to "Add a restaurant", new_restaurant_path %>
+</div>
+
+<% @restaurants.each do |restaurant|%>
+  <div class="m-5 p-5 border rounded bg-light">
+    <h4> <%= link_to restaurant.name, restaurant_path(restaurant.id) %> </h4>
+    <p><i>Address:</i>  <%= restaurant.address %> </p>
+    <p><i>Category:</i> <%= restaurant.category %> </p>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<h1 class="m-5">Restaurant details</h1>
+
+
+<div class="m-5 p-5 bg-primary rounded">
+  <p>Restaurant's name: <%= @restaurant.name%></p>
+  <p>Address: <%= @restaurant.address%></p>
+  <p>Phone number: <%= @restaurant.phone_number%></p>
+  <p>Category: <%= @restaurant.category%></p>
+</div>
+
+<div class="m-5 d-flex justify-content-between align-items-center">
+  <h2>Reviews</h2>
+  <%= link_to "Add review", new_restaurant_review_path(@restaurant.id) %>
+</div>
+
+<% @reviews.each do |review|%>
+  <div class="d-flex justify-content-between align-items-center m-5 p-5 border rounded bg-light">
+    <div>
+      <%= review.content %>
+    </div>
+    <div>
+      <p><%= review.rating %>/5</p>
+    </div>
+  </div>
+<% end %>
